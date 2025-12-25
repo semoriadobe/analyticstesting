@@ -1,7 +1,8 @@
 .main_img {
     width: 200px;
     height: 70px;
-    background: url('images/jj_logo_green.png');
+    background: url('../images/jj_logo_green.png');
     background-size: cover;
     background-position: 20% 40%;
+
 }
