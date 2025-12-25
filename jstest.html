@@ -1,0 +1,193 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <!--Place Launch header below this-->  
+    
+    <script src="https://assets.adobedtm.com/4a46d15cb929/2149dd12747e/launch-814b0f45291c-development.min.js" async></script>
+
+    <!--Place Launch header above this-->
+
+
+    <script type="text/javascript"> 
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  const accordions = document.querySelectorAll('.accordion');
+  accordions.forEach((accordion) => {
+    // button 取得
+    const trigger = accordion.querySelector('.accordion__title button');
+
+    // __content 取得
+    const content = accordion.querySelector('.accordion__content');
+
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      const isExpanded = trigger.getAttribute('aria-expanded');
+      if ('false' === isExpanded) {
+        trigger.setAttribute('aria-expanded', 'true');
+        content.setAttribute('aria-hidden', 'false');
+      } else {
+        trigger.setAttribute('aria-expanded', 'false');
+        content.setAttribute('aria-hidden', 'true');
+      }
+    });
+  });
+});
+
+    </script> 
+
+<style type="text/css">
+
+
+.accordion {
+    border: solid 1px #bbb;
+}
+
+.accordion + .accordion {
+    margin-top: -1px;
+}
+
+.accordion__title {
+  background: #f5f5f5;
+}
+.accordion__title > button{
+  display: flex;
+  background: none;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  border: none;
+  font-size: inherit;
+  color: inherit;
+  padding: 1em;
+  cursor: pointer;
+  margin: 0;
+}
+
+.accordion__icon {
+    display: block;
+    width: 1em;
+    height: 1em;
+    margin: 0 .5em;
+    background-color: currentColor;
+    clip-path: polygon(50% 80%, 0 20%, 100% 20%);
+    transition: transform .25s;
+}
+
+[aria-expanded="true"] > .accordion__icon{
+  transform: rotate(180deg);
+}
+
+.accordion__content {
+  overflow: hidden;
+  padding: 1em;
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  transition: padding .25s, height .25s, opacity .25s, visibility .25s;
+}
+
+.accordion__content[aria-hidden="true"] {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+
+/* アコーディオンに無関係 */
+.wrapper{
+  font-size: min(3.6vw, 16px);
+  padding: 1em;
+  max-width: 800px;
+  line-height: 1.8;
+    
+  *{
+    box-sizing: border-box;
+  }
+}
+
+.blogLink{
+  margin-top: 4em;
+  font-size: 12px;
+}
+
+</style>
+
+    
+    <script>
+        var digitalData = digitalData || {};
+        digitalData = {
+            page: {
+                pageName: "JavaScript Test Page",
+                siteSection: "JavaScript Test Page",
+                siteSubsection: "",
+                server: "Geometrixx Clothiers Site"
+            },
+            customer: {
+                loginStatus: "",
+            },
+        };
+    </script>
+
+    <title>JavaScript Test </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <div class="accordion">
+        <div class="accordion__title">
+            <button type="button" aria-expanded="false" aria-controls="acc01">
+                アコーディオンその1
+                <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div id="acc01" class="accordion__content" aria-hidden="true">
+          <p>アコーディオンその1のコンテンツだよ。</p>
+          <p>アコーディオンその1のコンテンツだよ。</p>
+          <p>アコーディオンその1のコンテンツだよ。</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <div class="accordion__title">
+          <button type="button" aria-expanded="false" aria-controls="acc02">
+            アコーディオンその2
+            <span class="accordion__icon" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div id="acc02" class="accordion__content" aria-hidden="true">
+          <p>アコーディオンその2のコンテンツだよ。</p>
+          <p>アコーディオンその2のコンテンツだよ。</p>
+          <p>アコーディオンその2のコンテンツだよ。</p>
+        </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion__title">
+        <button type="button" aria-expanded="true" aria-controls="acc03">
+          アコーディオン3（初期状態で開いてる）
+          <span class="accordion__icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div id="acc03" class="accordion__content" aria-hidden="false">
+        <p>アコーディオン3のコンテンツだよ。</p>
+        <p>アコーディオン3のコンテンツだよ。</p>
+        <p>アコーディオン3のコンテンツだよ。</p>
+      </div>
+    </div>
+</div>
+
+</body>
+
+</html>
